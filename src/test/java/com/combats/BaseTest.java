@@ -19,6 +19,7 @@ public class BaseTest {
     @BeforeTest
     public void beforeTest() {
         browser = "chrome";
+        headless = true;
         startMaximized = true;
         savePageSource = false;
 
