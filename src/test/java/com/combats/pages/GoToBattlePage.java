@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.combats.BaseTest.waiting;
 import static java.lang.Double.parseDouble;
@@ -15,7 +14,7 @@ import static java.lang.Double.parseDouble;
 public class GoToBattlePage {
 
     @FindBy(css = "[value='Обновить']")
-    private SelenideElement refresh;
+    private SelenideElement refreshBtn;
 
     @FindBy(css = "[name=confirm1]")
     private SelenideElement confirm;
@@ -46,7 +45,7 @@ public class GoToBattlePage {
     }
 
     private void enterToChaos() {
-        while (refresh.isDisplayed()) {
+        while (refreshBtn.isDisplayed()) {
             if (confirm.isDisplayed()) {
                 int number = chooseRadio();
                 $$(goCombat).get(number).click();
@@ -62,7 +61,7 @@ public class GoToBattlePage {
     }
 
     private void enterToGroup() {
-        while (refresh.isDisplayed()) {
+        while (refreshBtn.isDisplayed()) {
             if (open.isDisplayed()) {
                 open.click();
                 $("[name=nlogin1]").setValue("3");
@@ -76,7 +75,8 @@ public class GoToBattlePage {
     }
 
     private void refreshGoToBattlePage() {
-        refresh.shouldBe(visible).click();
+        if (refreshBtn.isDisplayed())
+            refreshBtn.click();
         waiting(3, 5);
     }
 
@@ -85,8 +85,8 @@ public class GoToBattlePage {
     }
 
     /*
-    * P3
-    * переписать логику выбора, сейчас сортируется порядковый номер, а надо сортировать время до боя
+     * P3
+     * переписать логику выбора, сейчас сортируется порядковый номер, а надо сортировать время до боя
      */
     private int chooseRadio() {
         ArrayList<Integer> list = new ArrayList<Integer>();
