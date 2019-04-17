@@ -3,4 +3,5 @@ language: java
 jdk:
   - oraclejdk8
 
-script: mvn test -Dlogin=$log -Dpassword=$pass -DtypeOfBattle=chaos
+script:
+  - mvn test -Dlogin=$login -Dpassword=$password -DtypeOfBattle=chaos
