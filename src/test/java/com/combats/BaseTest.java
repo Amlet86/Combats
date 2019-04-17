@@ -11,9 +11,9 @@ import static java.lang.Thread.sleep;
 public class BaseTest {
 
     /*
-    *
-    * command for launch from console:
-    * mvn test -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
+     *
+     * command for launch from console:
+     * mvn test -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
      */
 
     @BeforeTest
