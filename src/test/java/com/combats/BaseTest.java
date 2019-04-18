@@ -19,8 +19,9 @@ public class BaseTest {
     @BeforeTest
     public void beforeTest() {
         browser = "chrome";
+        browserSize = "1600x900";
         headless = true;
-        startMaximized = true;
+//        startMaximized = true;
         savePageSource = false;
 
         WebDriverManager.chromedriver().setup();

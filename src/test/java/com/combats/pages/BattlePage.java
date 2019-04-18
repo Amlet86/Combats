@@ -50,7 +50,7 @@ public class BattlePage {
                 if (battleMethod.isDisplayed()) {
                     $$(".UserBattleMethod").get(0).click();
                 }
-                if (attackRadios.get(0).isDisplayed() && defendRadios.get(0).isDisplayed()) {
+                if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
                     attackRadios.get(getRandomInt(0, 5)).click();
                     defendRadios.get(getRandomInt(0, 5)).click();
                     commitBtn.pressEnter();
