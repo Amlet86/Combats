@@ -51,7 +51,7 @@ public class BattlePage {
                     $$(".UserBattleMethod").get(0).click();
                 }
                 if (attackRadios.get(0).isDisplayed() && defendRadios.get(0).isDisplayed()) {
-                    attackRadios.get(getRandomInt(0, 5)).shouldBe(visible).click();
+                    attackRadios.get(getRandomInt(0, 5)).click();
                     defendRadios.get(getRandomInt(0, 5)).click();
                     commitBtn.pressEnter();
                     waiting(1, 2);
