@@ -4,3 +4,5 @@ jdk:
   - oraclejdk8
 
 install: mvn test -Dlogin=$login -Dpassword=$password -DtypeOfBattle=chaos
+
+script: mvn test -Dlogin=$login -Dpassword=$password -DtypeOfBattle=chaos
