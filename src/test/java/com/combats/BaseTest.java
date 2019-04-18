@@ -23,6 +23,7 @@ public class BaseTest {
         headless = true;
 //        startMaximized = true;
         savePageSource = false;
+        timeout = 10000;
 
         WebDriverManager.chromedriver().setup();
     }
