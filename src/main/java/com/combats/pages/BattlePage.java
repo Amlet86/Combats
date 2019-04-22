@@ -1,4 +1,4 @@
-package com.combats.pages;
+package combats.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import java.time.LocalTime;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.combats.BaseTest.getRandomInt;
 import static com.combats.BaseTest.waiting;

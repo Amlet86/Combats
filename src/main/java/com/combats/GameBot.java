@@ -1,12 +1,14 @@
 package com.combats;
 
 import com.combats.pages.LoginPage;
-import org.testng.annotations.Test;
 
-public class GameTest extends BaseTest {
+public class GameTest extends BaseBot {
 
-    @Test
-    public void endToEnd() {
+    public static void main(String[] args) {
+        endToEnd();
+    }
+
+    public static void endToEnd() {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(System.getProperty("login"), System.getProperty("password"))

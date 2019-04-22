@@ -1,7 +1,6 @@
 package com.combats;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.annotations.BeforeTest;
 
 import java.util.Random;
 
@@ -16,7 +15,6 @@ public class BaseTest {
      * mvn test -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
      */
 
-    @BeforeTest
     public void beforeTest() {
         browser = "chrome";
         browserSize = "1600x900";

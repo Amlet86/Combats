@@ -38,10 +38,10 @@
                                     <property>password</property>
                                     <message>You must set a password property!</message>
                                 </requireProperty>
-                                <requireProperty>
-                                    <property>typeOfBattle</property>
-                                    <message>You must set a typeOfBattle property!</message>
-                                </requireProperty>
+<!--                                <requireProperty>-->
+<!--                                    <property>typeOfBattle</property>-->
+<!--                                    <message>You must set a typeOfBattle property!</message>-->
+<!--                                </requireProperty>-->
                             </rules>
                             <fail>true</fail>
                         </configuration>
@@ -63,6 +63,19 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
