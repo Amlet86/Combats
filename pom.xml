@@ -38,12 +38,12 @@
                                     <property>password</property>
                                     <message>You must set a password property!</message>
                                 </requireProperty>
-<!--                                <requireProperty>-->
-<!--                                    <property>typeOfBattle</property>-->
-<!--                                    <message>You must set a typeOfBattle property!</message>-->
-<!--                                </requireProperty>-->
+                                <requireProperty>
+                                    <property>typeOfBattle</property>
+                                    <message>You must set a typeOfBattle property!</message>
+                                </requireProperty>
                             </rules>
-                            <fail>true</fail>
+                            <fail>false</fail>
                         </configuration>
                     </execution>
                 </executions>
