@@ -1,4 +1,6 @@
-package combats.pages;
+package com.combats.pages;
+
+import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -18,7 +20,7 @@ public class CityPage {
         switchToGameFrame();
         if ($("#dailypopup").isDisplayed())
             $x("//*[.='Взять задание']").click();
-        return page(GoToBattlePage.class);
+        return Selenide.page(GoToBattlePage.class);
     }
 
 }

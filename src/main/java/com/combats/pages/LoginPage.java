@@ -1,4 +1,4 @@
-package combats.pages;
+package com.combats.pages;
 
 import static com.codeborne.selenide.Selenide.*;
 

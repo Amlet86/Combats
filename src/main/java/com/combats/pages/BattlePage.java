@@ -1,4 +1,4 @@
-package combats.pages;
+package com.combats.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,8 +8,8 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static com.combats.BaseTest.getRandomInt;
-import static com.combats.BaseTest.waiting;
+import static com.combats.BaseBot.getRandomInt;
+import static com.combats.BaseBot.waiting;
 
 public class BattlePage {
 
@@ -23,13 +23,16 @@ public class BattlePage {
     private SelenideElement gameover;
 
     @FindBy(css = ".UserBattleMethod")
-    private SelenideElement battleMethod;
+    private List<SelenideElement> battleMethods;
 
     @FindBy(css = ".UserBattleAttack button.UserBattleRadio")
     private List<SelenideElement> attackRadios;
 
     @FindBy(css = ".UserBattleDefend button.UserBattleRadio")
     private List<SelenideElement> defendRadios;
+
+    @FindBy(css = "td.UserBattleError")
+    private SelenideElement text;
 
     public BattlePage() {
     }
@@ -43,12 +46,10 @@ public class BattlePage {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
-            if (battleKick.isDisplayed()) {
-                battleKick.click();
-                waiting(3, 5);
-            } else {
-                if (battleMethod.isDisplayed()) {
-                    $$(".UserBattleMethod").get(0).click();
+            if (commitBtn.isDisplayed()) {
+                if ($(".UserBattleMethod").isDisplayed()) { // если активен приём
+                    battleMethods.get(0).click();                     // прожать
+                    waiting(0, 1);
                 }
                 if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
                     attackRadios.get(getRandomInt(0, 5)).click();
@@ -56,6 +57,9 @@ public class BattlePage {
                     commitBtn.pressEnter();
                     waiting(1, 2);
                 }
+            } else if (battleKick.isDisplayed()) {
+                battleKick.click();
+                waiting(3, 5);
             }
         }
         getMessage();
@@ -68,13 +72,16 @@ public class BattlePage {
      */
 
     private void getMessage() {
-        String message = $("td.UserBattleError").getText();
-        System.out.println(LocalTime.now() + " " + message);
+        if (text.isDisplayed()) {
+            String message = text.getText();
+            System.out.println(LocalTime.now() + " " + message);
+        }
     }
 
     private void exitBattle() {
         getMessage();
-        gameover.waitUntil(visible, 5000).click();
+        if (gameover.isDisplayed())
+            gameover.click();
     }
 
 }

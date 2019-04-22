@@ -1,4 +1,4 @@
-package combats.pages;
+package com.combats.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.combats.BaseTest.waiting;
+import static com.combats.BaseBot.waiting;
 import static java.lang.Double.parseDouble;
 
 public class GoToBattlePage {

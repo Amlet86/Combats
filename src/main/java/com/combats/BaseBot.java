@@ -1,13 +1,18 @@
 package com.combats;
 
+import com.codeborne.selenide.WebDriverRunner;
+import com.combats.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.util.Random;
 
 import static com.codeborne.selenide.Configuration.*;
 import static java.lang.Thread.sleep;
 
-public class BaseTest {
+public class BaseBot {
 
     /*
      *
@@ -15,15 +20,32 @@ public class BaseTest {
      * mvn test -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
      */
 
-    public void beforeTest() {
+    @BeforeTest
+    public static void preparation() {
         browser = "chrome";
         browserSize = "1600x900";
         headless = true;
-//        startMaximized = true;
+//        holdBrowserOpen = true;
         savePageSource = false;
         timeout = 10000;
 
         WebDriverManager.chromedriver().setup();
+    }
+
+    @Test
+    public static void game() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.enterToMainPage()
+                .login(System.getProperty("login"), System.getProperty("password"))
+                .moveInCity()
+                .chooseBattle("")
+                .fight();
+    }
+
+    @AfterTest
+    public static void end() {
+        WebDriverRunner.getWebDriver().close();
+        waiting(120, 180);
     }
 
     private static int getRandomMultiplyThousand(int from, int to) {
