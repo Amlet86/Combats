@@ -47,8 +47,8 @@ public class BattlePage {
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
             if (commitBtn.isDisplayed()) {
-                if ($(".UserBattleMethod").isDisplayed()) { // если активен приём
-                    battleMethods.get(0).click();                     // прожать
+                if ($(".UserBattleMethod").isDisplayed()) {
+                    battleMethods.get(0).click();
                     waiting(0, 1);
                 }
                 if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {

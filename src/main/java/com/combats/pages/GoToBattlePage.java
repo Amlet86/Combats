@@ -13,6 +13,9 @@ import static java.lang.Double.parseDouble;
 
 public class GoToBattlePage {
 
+    @FindBy(css = "[value='Поединки']")
+    private SelenideElement battles;
+
     @FindBy(css = "[value='Обновить']")
     private SelenideElement refreshBtn;
 
@@ -28,7 +31,7 @@ public class GoToBattlePage {
     private By goCombat = By.cssSelector("[name=gocombat]");
 
     public BattlePage chooseBattle(String typeOfBattle) {
-        $("[value='Поединки']").click();
+        battles.click();
         if ("chaos".equals(typeOfBattle) || "".equals(typeOfBattle)) {
             $x("//*[.='Хаотичные']").click();
             enterToChaos();
@@ -77,7 +80,7 @@ public class GoToBattlePage {
     private void refreshGoToBattlePage() {
         if (refreshBtn.isDisplayed())
             refreshBtn.click();
-        waiting(3, 5);
+        waiting(4, 5);
     }
 
     private void enterToSingle() {
@@ -87,9 +90,10 @@ public class GoToBattlePage {
     /*
      * P3
      * переписать логику выбора, сейчас сортируется порядковый номер, а надо сортировать время до боя
+     * исключить из вычитки всё что не число
      */
     private int chooseRadio() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         int iterator = 0;
         try {
             for (SelenideElement element : $$("[action='zayavka.pl'] > .dsc > i > b")) {

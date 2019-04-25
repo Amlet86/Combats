@@ -1,10 +1,15 @@
 package com.combats.pages;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class CityPage {
+
+    @FindBy(css = "[value='Поединки']")
+    private SelenideElement battles;
 
     private void switchToGameFrame() {
         switchTo().frame($("[onload='top.User.Framework.MainOnLoad( )']"));
@@ -13,6 +18,8 @@ public class CityPage {
     private void whereAmI() {
         if ($(".UserBattleEnd").isDisplayed())
             $(".UserBattleEnd").click();
+        if(!battles.isDisplayed())
+            refresh();
     }
 
     public GoToBattlePage moveInCity() {
