@@ -93,7 +93,7 @@ public class GoToBattlePage {
      * исключить из вычитки всё что не число
      */
     private int chooseRadio() {
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
         int iterator = 0;
         try {
             for (SelenideElement element : $$("[action='zayavka.pl'] > .dsc > i > b")) {
