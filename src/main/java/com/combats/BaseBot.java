@@ -27,6 +27,7 @@ public class BaseBot {
         headless = true;
 //        holdBrowserOpen = true;
         savePageSource = false;
+        reportsFolder = "fails";
         timeout = 10000;
 
         WebDriverManager.chromedriver().setup();
