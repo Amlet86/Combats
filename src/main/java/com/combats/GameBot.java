@@ -12,7 +12,11 @@ public class GameBot extends BaseBot {
 
         while (8 <= now && now <= 23) {
             preparation();
-            game();
+            try {
+                game();
+            } catch (Exception e) {
+                e.getStackTrace();
+            }
             end();
         }
     }
