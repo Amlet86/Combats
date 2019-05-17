@@ -22,7 +22,7 @@ public class CityPage {
             refresh();
     }
 
-    public GoToBattlePage moveInCity() {
+    public GoToBattlePage moveInTheCity() {
         whereAmI();
         switchToGameFrame();
         if ($("#dailypopup").isDisplayed())

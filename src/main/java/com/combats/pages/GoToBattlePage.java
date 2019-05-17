@@ -31,18 +31,20 @@ public class GoToBattlePage {
     private By goCombat = By.cssSelector("[name=gocombat]");
 
     public BattlePage chooseBattle(String typeOfBattle) {
-        battles.click();
-        if ("chaos".equals(typeOfBattle) || "".equals(typeOfBattle)) {
-            $x("//*[.='Хаотичные']").click();
-            enterToChaos();
-        }
-        if ("group".equals(typeOfBattle)) {
-            $x("//*[.='Групповые']").click();
-            enterToGroup();
-        }
-        if ("single".equals(typeOfBattle)) {
-            $x("//*[.='1 на 1']").click();
-            enterToSingle();
+        if (battles.isDisplayed()) {
+            battles.click();
+            if ("chaos".equals(typeOfBattle) || "".equals(typeOfBattle)) {
+                $x("//*[.='Хаотичные']").click();
+                enterToChaos();
+            }
+            if ("group".equals(typeOfBattle)) {
+                $x("//*[.='Групповые']").click();
+                enterToGroup();
+            }
+            if ("single".equals(typeOfBattle)) {
+                $x("//*[.='1 на 1']").click();
+                enterToSingle();
+            }
         }
         return page(BattlePage.class);
     }

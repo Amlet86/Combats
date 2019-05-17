@@ -25,6 +25,9 @@ public class BaseBot {
         browser = "chrome";
         browserSize = "1600x900";
         headless = true;
+        /*
+        * for debugging
+         */
 //        holdBrowserOpen = true;
         savePageSource = false;
         reportsFolder = "fails";
@@ -38,7 +41,7 @@ public class BaseBot {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(System.getProperty("login"), System.getProperty("password"))
-                .moveInCity()
+                .moveInTheCity()
                 .chooseBattle("")
                 .fight();
     }
