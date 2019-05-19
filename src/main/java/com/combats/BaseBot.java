@@ -25,9 +25,6 @@ public class BaseBot {
         browser = "chrome";
         browserSize = "1600x900";
         headless = true;
-        /*
-        * for debugging
-         */
 //        holdBrowserOpen = true;
         savePageSource = false;
         reportsFolder = "fails";

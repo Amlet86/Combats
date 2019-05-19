@@ -55,11 +55,13 @@ public class GoToBattlePage {
                 int number = chooseRadio();
                 $$(goCombat).get(number).click();
                 confirm.click();
+                waiting(4, 5);
             } else if (applicationChaos.isDisplayed()) {
                 applicationChaos.click();
                 $("[name=startime2]").selectOptionByValue("300");
                 $("[name=levellogin1]").selectOptionByValue("3");
                 open.click();
+                waiting(10, 15);
             } else
                 refreshGoToBattlePage();
         }
