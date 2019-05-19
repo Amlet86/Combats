@@ -51,12 +51,13 @@ public class GoToBattlePage {
 
     private void enterToChaos() {
         while (refreshBtn.isDisplayed()) {
-            if (confirm.isDisplayed()) {
-                int number = chooseRadio();
-                $$(goCombat).get(number).click();
-                confirm.click();
-                waiting(4, 5);
-            } else if (applicationChaos.isDisplayed()) {
+//            if (confirm.isDisplayed()) {
+//                int number = chooseRadio();
+//                $$(goCombat).get(number).click();
+//                confirm.click();
+//                waiting(4, 5);
+//            } else
+                if (applicationChaos.isDisplayed()) {
                 applicationChaos.click();
                 $("[name=startime2]").selectOptionByValue("300");
                 $("[name=levellogin1]").selectOptionByValue("3");
@@ -84,7 +85,7 @@ public class GoToBattlePage {
     private void refreshGoToBattlePage() {
         if (refreshBtn.isDisplayed())
             refreshBtn.click();
-        waiting(4, 5);
+        waiting(5, 10);
     }
 
     private void enterToSingle() {

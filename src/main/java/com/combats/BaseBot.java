@@ -15,14 +15,14 @@ import static java.lang.Thread.sleep;
 public class BaseBot {
 
     /*
-     *
      * command for launch from console:
-     * mvn test -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
+     * mvn exec:java -Dexec.mainClass="com.combats.GameBot" -Dlogin=Amlet -Dpassword=*12fylhtQ34# -DtypeOfBattle=chaos/group/single
      */
 
     @BeforeTest
     public static void preparation() {
         browser = "chrome";
+//        startMaximized = true;
         browserSize = "1600x900";
         headless = true;
 //        holdBrowserOpen = true;
