@@ -22,13 +22,13 @@ public class BaseBot {
     @BeforeTest
     public static void preparation() {
         browser = "chrome";
-//        startMaximized = true;
-        browserSize = "1600x900";
-        headless = true;
-//        holdBrowserOpen = true;
+        startMaximized = true;
+//        browserSize = "1600x900";
+//        headless = true;
+        holdBrowserOpen = true;
         savePageSource = false;
         reportsFolder = "fails";
-        timeout = 10000;
+        timeout = 6000;
 
         WebDriverManager.chromedriver().setup();
     }
@@ -60,14 +60,6 @@ public class BaseBot {
     public static void waiting(int from, int to) {
         try {
             sleep(getRandomMultiplyThousand(from, to));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void waiting(int time) {
-        try {
-            sleep(getRandomMultiplyThousand(time, time));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
