@@ -49,7 +49,7 @@ public class BattlePage {
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
                     battleMethods.get(0).click();
-                    waiting(1, 2);
+                    waiting(1);
                 }
                 if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
                     attackRadios.get(getRandomInt(0, 5)).click();

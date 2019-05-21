@@ -46,7 +46,7 @@ public class BaseBot {
     @AfterTest
     public static void end() {
         WebDriverRunner.getWebDriver().close();
-        waiting(120, 180);
+        waiting(120, 150);
     }
 
     private static int getRandomMultiplyThousand(int from, int to) {
@@ -60,6 +60,14 @@ public class BaseBot {
     public static void waiting(int from, int to) {
         try {
             sleep(getRandomMultiplyThousand(from, to));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void waiting(int time) {
+        try {
+            sleep(getRandomMultiplyThousand(time, time));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
