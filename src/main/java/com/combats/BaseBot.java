@@ -22,10 +22,10 @@ public class BaseBot {
     @BeforeTest
     public static void preparation() {
         browser = "chrome";
-        startMaximized = true;
-//        browserSize = "1600x900";
-//        headless = true;
-        holdBrowserOpen = true;
+//        startMaximized = true;
+        browserSize = "1600x900";
+        headless = true;
+//        holdBrowserOpen = true;
         savePageSource = false;
         reportsFolder = "fails";
         timeout = 6000;
@@ -46,7 +46,7 @@ public class BaseBot {
     @AfterTest
     public static void end() {
         WebDriverRunner.getWebDriver().close();
-        waiting(120, 150);
+        waiting(30, 60);
     }
 
     private static int getRandomMultiplyThousand(int from, int to) {

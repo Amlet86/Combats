@@ -10,7 +10,7 @@ public class GameBot extends BaseBot {
         SimpleDateFormat parser = new SimpleDateFormat("HH");
         int now = Integer.parseInt(parser.format(new Date()));
 
-        while (8 <= now && now <= 23) {
+        while (7 <= now && now <= 23) {
             preparation();
             game();
             end();
