@@ -9,7 +9,7 @@ public class GameBot extends BaseBot {
 
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        String typeOfBattle = System.getProperty("typeOfBattle");
+        String typeOfBattle = (System.getProperty("typeOfBattle") != null) ? System.getProperty("typeOfBattle") : "chaos";
 
         SimpleDateFormat parser = new SimpleDateFormat("HH");
         int now = Integer.parseInt(parser.format(new Date()));
