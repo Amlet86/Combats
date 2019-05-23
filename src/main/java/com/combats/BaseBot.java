@@ -16,7 +16,7 @@ public class BaseBot {
 
     /*
      * command for launch from console:
-     * mvn exec:java -Dexec.mainClass="com.combats.GameBot" -Dlogin=Amlet -Dpassword=*12fylhtQ34# -DtypeOfBattle=chaos/group/single
+     * mvn exec:java -Dexec.mainClass="com.combats.GameBot" -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
      */
 
     @BeforeTest
@@ -24,7 +24,7 @@ public class BaseBot {
         browser = "chrome";
 //        startMaximized = true;
         browserSize = "1600x900";
-        headless = true;
+//        headless = true;
 //        holdBrowserOpen = true;
         savePageSource = false;
         reportsFolder = "fails";
@@ -34,12 +34,12 @@ public class BaseBot {
     }
 
     @Test
-    public static void game() {
+    public static void game(String login, String password, String typeOfBattle) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
-                .login(System.getProperty("login"), System.getProperty("password"))
+                .login(login, password)
                 .moveInTheCity()
-                .chooseBattle("")
+                .chooseBattle(typeOfBattle)
                 .fight();
     }
 

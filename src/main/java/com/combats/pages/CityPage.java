@@ -18,7 +18,7 @@ public class CityPage {
     private void whereAmI() {
         if ($(".UserBattleEnd").isDisplayed())
             $(".UserBattleEnd").click();
-        if(!battles.isDisplayed())
+        if (!battles.isDisplayed())
             refresh();
     }
 

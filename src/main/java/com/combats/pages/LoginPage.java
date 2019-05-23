@@ -4,11 +4,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
 
-    public LoginPage enterToMainPage(){
+    public LoginPage enterToMainPage() {
         return open("http://www.combats.com/", LoginPage.class);
     }
 
-    public CityPage login(String login, String password){
+    public CityPage login(String login, String password) {
         $("[name=login]").setValue(login);
         $("[name=psw]").setValue(password);
         $("[value=' Войти ']").click();
