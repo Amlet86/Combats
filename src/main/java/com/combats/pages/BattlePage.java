@@ -57,12 +57,11 @@ public class BattlePage {
                     commitBtn.pressEnter();
                     waiting(1, 2);
                 }
-            } else if (battleKick.isDisplayed()) {
+            } if (battleKick.isDisplayed()) {
                 battleKick.click();
                 waiting(3, 4);
             }
         }
-        getMessage();
         exitBattle();
     }
 
