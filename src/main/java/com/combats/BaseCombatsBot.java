@@ -32,7 +32,7 @@ public class BaseCombatsBot {
         headless = true;
         savePageSource = false;
         reportsFolder = "fails";
-        timeout = 6000;
+        timeout = 10000;
 
         WebDriverManager.chromedriver().setup();
     }
