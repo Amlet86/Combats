@@ -1,5 +1,7 @@
 language: java
-jdk: oraclejdk8
+
+jdk:
+  - oraclejdk8
 
 script:
   mvn package
@@ -8,5 +10,4 @@ deploy:
   provider: heroku
   api_key:
     secure: "ffdc7e59-9ab4-460d-a960-e6f7b338a43f"
-  run: mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=$login -Dpassword=$password
-  -DtypeOfBattle=typeOfBattle -DtelegramAPI=telegramAPI
+  run: mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=$login -Dpassword=$password -DtypeOfBattle=typeOfBattle -DtelegramAPI=telegramAPI
