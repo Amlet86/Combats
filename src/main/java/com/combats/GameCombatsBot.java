@@ -3,7 +3,7 @@ package com.combats;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class GameBot extends BaseBot {
+public class GameCombatsBot extends BaseCombatsBot {
 
     public static void main(String[] args) {
 

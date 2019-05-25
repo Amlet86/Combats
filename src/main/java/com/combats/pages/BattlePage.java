@@ -8,8 +8,8 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static com.combats.BaseBot.getRandomInt;
-import static com.combats.BaseBot.waiting;
+import static com.combats.BaseCombatsBot.getRandomInt;
+import static com.combats.BaseCombatsBot.waiting;
 
 public class BattlePage {
 
@@ -74,6 +74,8 @@ public class BattlePage {
         if (text.isDisplayed()) {
             String message = text.getText();
             System.out.println(LocalTime.now() + " " + message);
+            open("https://api.telegram.org/bot822061155:AAEug-A-L_OTe4IIYFc5mq4rHyLiZb6GRaU" +
+                    "/sendMessage?chat_id=391800117&text=" + message);
         }
     }
 

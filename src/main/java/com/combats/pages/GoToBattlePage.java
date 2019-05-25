@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.combats.BaseBot.waiting;
+import static com.combats.BaseCombatsBot.waiting;
 import static java.lang.Double.parseDouble;
 
 public class GoToBattlePage {
