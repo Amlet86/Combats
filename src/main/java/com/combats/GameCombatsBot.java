@@ -10,6 +10,7 @@ public class GameCombatsBot extends BaseCombatsBot {
         String login = System.getProperty("login");
         String password = System.getProperty("password");
         String typeOfBattle = (System.getProperty("typeOfBattle") != null) ? System.getProperty("typeOfBattle") : "chaos";
+        String telegramAPI = System.getProperty("telegramAPI");
 
         SimpleDateFormat parser = new SimpleDateFormat("HH");
         int now = Integer.parseInt(parser.format(new Date()));

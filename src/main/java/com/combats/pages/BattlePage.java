@@ -65,16 +65,11 @@ public class BattlePage {
         exitBattle();
     }
 
-    /*
-     * P4
-     * уведомление в телегу об окончании боя
-     */
-
     private void getMessage() {
         if (text.isDisplayed()) {
             String message = text.getText();
             System.out.println(LocalTime.now() + " " + message);
-            open("https://api.telegram.org/bot822061155:AAEug-A-L_OTe4IIYFc5mq4rHyLiZb6GRaU" +
+            open("https://api.telegram.org/" + System.getProperty("telegramAPI") +
                     "/sendMessage?chat_id=391800117&text=" + message);
         }
     }

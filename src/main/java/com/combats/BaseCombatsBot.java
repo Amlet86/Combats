@@ -16,7 +16,8 @@ public class BaseCombatsBot {
 
     /*
      * command for launch not compiled from console:
-     * mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single
+     * mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
+     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI
      *
      * command for launch Combats.jar from console:
      * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -jar Combats-version.jar
@@ -32,7 +33,7 @@ public class BaseCombatsBot {
         headless = true;
         savePageSource = false;
         reportsFolder = "fails";
-        timeout = 10000;
+        timeout = 8000;
 
         WebDriverManager.chromedriver().setup();
     }
