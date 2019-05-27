@@ -1,6 +1,7 @@
 package com.combats.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.mashape.unirest.http.Unirest;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalTime;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.combats.BaseCombatsBot.getRandomInt;
 import static com.combats.BaseCombatsBot.waiting;
+import static com.mashape.unirest.http.Unirest.get;
 
 public class BattlePage {
 
@@ -42,7 +44,7 @@ public class BattlePage {
      * добавить исключение выбора питомца в приёмах
      */
 
-    public void fight() {
+    public void fight(String telegramAPI) {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
@@ -57,25 +59,28 @@ public class BattlePage {
                     commitBtn.pressEnter();
                     waiting(1, 2);
                 }
-            } if (battleKick.isDisplayed()) {
+            }
+            if (battleKick.isDisplayed()) {
                 battleKick.click();
                 waiting(3, 4);
             }
         }
+        getMessage(telegramAPI);
         exitBattle();
     }
 
-    private void getMessage() {
+    private void getMessage(String telegramAPI) {
         if (text.isDisplayed()) {
             String message = text.getText();
-            System.out.println(LocalTime.now() + " " + message);
-            open("https://api.telegram.org/" + System.getProperty("telegramAPI") +
-                    "/sendMessage?chat_id=391800117&text=" + message);
+            if (telegramAPI.equals("null")) {
+                System.out.println(LocalTime.now() + " " + message);
+            } else
+                get("https://api.telegram.org/" + telegramAPI +
+                        "/sendMessage?chat_id=391800117&text=" + LocalTime.now() + " " + message);
         }
     }
 
     private void exitBattle() {
-        getMessage();
         if (gameover.isDisplayed())
             gameover.click();
     }

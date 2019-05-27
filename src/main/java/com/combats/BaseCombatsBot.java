@@ -39,13 +39,13 @@ public class BaseCombatsBot {
     }
 
     @Test
-    public static void game(String login, String password, String typeOfBattle) {
+    public static void game(String login, String password, String typeOfBattle, String telegramAPI) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(login, password)
                 .moveInTheCity()
                 .chooseBattle(typeOfBattle)
-                .fight();
+                .fight(telegramAPI);
     }
 
     @AfterTest
