@@ -1,1 +1,1 @@
-web: mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot"
+web: exec:java -Dexec.mainClass="com.combats.GameCombatsBot"
