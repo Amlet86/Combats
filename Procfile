@@ -1,1 +1,1 @@
-web: exec:java -Dexec.mainClass="com.combats.GameCombatsBot"
+web: java -Dexec.mainClass="com.combats.GameCombatsBot"
