@@ -27,6 +27,9 @@ public class BattlePage {
     @FindBy(css = ".UserBattleMethod")
     private List<SelenideElement> battleMethods;
 
+    @FindBy(css = ".UserBattleResources button")
+    private List<SelenideElement> battlePet;
+
     @FindBy(css = ".UserBattleAttack button.UserBattleRadio")
     private List<SelenideElement> attackRadios;
 
@@ -39,18 +42,14 @@ public class BattlePage {
     public BattlePage() {
     }
 
-    /*
-     * P2
-     * добавить исключение выбора питомца в приёмах
-     */
-
     public void fight(String telegramAPI) {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
-                    battleMethods.get(0).click();
+                    if (!battleMethods.get(0).equals(battlePet.get(11)))
+                        battleMethods.get(0).click();
                     waiting(1, 2);
                 }
                 if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
