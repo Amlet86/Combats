@@ -12,4 +12,5 @@ Parameters:
  -Dlogin=login  
  -Dpassword=password  
  -DtypeOfBattle=chaos/group/single  
- -DtelegramAPI=telegramAPI
+ -DtelegramAPI=telegramAPI  
+ -Dpet=yes/no

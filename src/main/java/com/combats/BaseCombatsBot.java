@@ -17,10 +17,10 @@ public class BaseCombatsBot {
     /*
      * command for launch not compiled from console:
      * mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
-     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI
+     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI -Dpet=yes/no
      *
      * command for launch Combats.jar from console:
-     * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -jar Combats-version.jar
+     * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -Dpet=yes/no -jar Combats-version.jar
      *
      */
 
@@ -39,13 +39,13 @@ public class BaseCombatsBot {
     }
 
     @Test
-    public static void game(String login, String password, String typeOfBattle, String telegramAPI) {
+    public static void game(String login, String password, String typeOfBattle, String pet, String telegramAPI) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(login, password)
                 .moveInTheCity()
                 .chooseBattle(typeOfBattle)
-                .fight(telegramAPI);
+                .fight(pet, telegramAPI);
     }
 
     @AfterTest

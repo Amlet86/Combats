@@ -1,7 +1,6 @@
 package com.combats.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.mashape.unirest.http.Unirest;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.LocalTime;
@@ -24,11 +23,11 @@ public class BattlePage {
     @FindBy(css = "[action=gameover]")
     private SelenideElement gameover;
 
-    @FindBy(css = ".UserBattleMethod")
-    private List<SelenideElement> battleMethods;
-
     @FindBy(css = ".UserBattleResources button")
-    private List<SelenideElement> battlePet;
+    private List<SelenideElement> anyBattleMethods;
+
+    @FindBy(css = ".UserBattleMethod")
+    private List<SelenideElement> activeBattleMethods;
 
     @FindBy(css = ".UserBattleAttack button.UserBattleRadio")
     private List<SelenideElement> attackRadios;
@@ -42,15 +41,20 @@ public class BattlePage {
     public BattlePage() {
     }
 
-    public void fight(String telegramAPI) {
+    public void fight(String pet, String telegramAPI) {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
-                    int countOfMethods = battlePet.size() - 1;
-                    if (!battleMethods.get(0).equals(battlePet.get(countOfMethods)))
-                        battleMethods.get(0).click();
+                    if (pet.equals("yes"))
+                        activeBattleMethods.get(0).click();
+                    else {
+                        if (anyBattleMethods.size() != 12)
+                            activeBattleMethods.get(0).click();
+                        else if (!activeBattleMethods.get(0).equals(anyBattleMethods.get(11)))
+                            activeBattleMethods.get(0).click();
+                    }
                     waiting(1, 2);
                 }
                 if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
