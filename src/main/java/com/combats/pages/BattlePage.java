@@ -48,7 +48,8 @@ public class BattlePage {
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
-                    if (!battleMethods.get(0).equals(battlePet.get(11)))
+                    int countOfMethods = battlePet.size() - 1;
+                    if (!battleMethods.get(0).equals(battlePet.get(countOfMethods)))
                         battleMethods.get(0).click();
                     waiting(1, 2);
                 }
