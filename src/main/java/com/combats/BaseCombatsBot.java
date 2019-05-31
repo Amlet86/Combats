@@ -17,20 +17,24 @@ public class BaseCombatsBot {
     /*
      * command for launch not compiled from console:
      * mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
-     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI -Dpet=yes/no
+     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI -Dpet=yes/no -Dheadless=true/false
      *
      * command for launch Combats.jar from console:
-     * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -Dpet=yes/no -jar Combats-version.jar
+     * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -Dpet=yes/no -Dheadless=true/false
+     * -jar Combats-version.jar
      *
      */
 
     @BeforeTest
-    public static void preparation() {
+    public static void preparation(boolean headlessValue) {
+        if (!headlessValue) {
+            startMaximized = true;
+        } else {
+            browserSize = "1600x900";
+        }
         browser = "chrome";
-        browserSize = "1600x900";
-//        startMaximized = true;
 //        holdBrowserOpen = true;
-        headless = true;
+        headless = headlessValue;
         savePageSource = false;
         reportsFolder = "fails";
         timeout = 8000;

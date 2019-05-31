@@ -45,10 +45,6 @@ public class BattlePage {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
-            if (battleKick.isDisplayed()) {
-                battleKick.shouldBe(visible).click();
-                waiting(3, 4);
-            }
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
                     if (pet.equals("yes"))
@@ -67,6 +63,9 @@ public class BattlePage {
                     commitBtn.pressEnter();
                     waiting(1, 2);
                 }
+            } else {
+                battleKick.pressEnter();
+                waiting(3, 4);
             }
 
         }
@@ -79,7 +78,7 @@ public class BattlePage {
             String message = text.getText();
             if (telegramAPI.equals("null"))
                 System.out.println(LocalTime.now() + " " + message);
-             else
+            else
                 Unirest.get("https://api.telegram.org/" + telegramAPI +
                         "/sendMessage?chat_id=391800117&text=" + LocalTime.now() + " " + message);
         }
