@@ -57,20 +57,24 @@ public class BattlePage {
                     }
                     waiting(1, 2);
                 }
-                if (attackRadios.get(1).isDisplayed() && defendRadios.get(1).isDisplayed()) {
+                if (attackRadios.get(1).isDisplayed())
                     attackRadios.get(getRandomInt(0, 5)).click();
+                if (defendRadios.get(1).isDisplayed())
                     defendRadios.get(getRandomInt(0, 5)).click();
+                if (commitBtn.isDisplayed())
                     commitBtn.pressEnter();
-                    waiting(1, 2);
-                }
+                waiting(1, 2);
             } else {
                 battleKick.pressEnter();
                 waiting(3, 4);
             }
 
         }
+
         getMessage(telegramAPI);
+
         exitBattle();
+
     }
 
     private void getMessage(String telegramAPI) {

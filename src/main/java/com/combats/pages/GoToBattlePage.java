@@ -50,7 +50,7 @@ public class GoToBattlePage {
     }
 
     private void enterToChaos() {
-        while (refreshBtn.exists() && refreshBtn.isDisplayed()) {
+        while (refreshBtn.isDisplayed()) {
 //            if (confirm.isDisplayed()) {
 //                int number = chooseRadio();
 //                $$(goCombat).get(number).click();
@@ -83,6 +83,7 @@ public class GoToBattlePage {
     }
 
     private void refreshGoToBattlePage() {
+        if(refreshBtn.isDisplayed())
         refreshBtn.click();
     }
 
