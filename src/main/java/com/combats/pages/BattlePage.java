@@ -61,9 +61,10 @@ public class BattlePage {
                     attackRadios.get(getRandomInt(0, 5)).click();
                 if (defendRadios.get(1).isDisplayed())
                     defendRadios.get(getRandomInt(0, 5)).click();
-                if (commitBtn.isDisplayed())
+                if (commitBtn.isDisplayed()) {
                     commitBtn.pressEnter();
-                waiting(1, 2);
+                    waiting(1, 2);
+                }
             }
             if (battleKick.isDisplayed()) {
                 battleKick.pressEnter();
