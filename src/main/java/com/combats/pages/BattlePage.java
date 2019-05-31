@@ -64,7 +64,8 @@ public class BattlePage {
                 if (commitBtn.isDisplayed())
                     commitBtn.pressEnter();
                 waiting(1, 2);
-            } else {
+            }
+            if (battleKick.isDisplayed()) {
                 battleKick.pressEnter();
                 waiting(3, 4);
             }
