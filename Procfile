@@ -1,1 +1,1 @@
-web: java -Dlogin=login -Dpassword=password -jar Combats-1.5.3.jar
+web: java -Dlogin=login -Dpassword=password -jar target/Combats-1.5.3.jar
