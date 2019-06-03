@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage {
 
     public LoginPage enterToMainPage() {
-        return open("http://www.combats.com/", LoginPage.class);
+        return open("http://www.google.com/", LoginPage.class);
     }
 
     public CityPage login(String login, String password) {
