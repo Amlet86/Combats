@@ -1,1 +1,1 @@
-web: mvn java -Dexec.mainClass="com.combats.GameCombatsBot"
+web: java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
