@@ -1,1 +1,1 @@
-web: java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
+web: java -Dlogin=login -Dpassword=password -jar Combats-1.5.3.jar

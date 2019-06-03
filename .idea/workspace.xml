@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a1310a9-c7cb-4730-b28a-966fdb18153a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,22 +23,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/combats/pages/BattlePage.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="724">
+              <caret line="94" column="18" lean-forward="true" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="83" column="51" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="51" />
+            <state>
+              <caret column="66" selection-start-column="66" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -107,8 +104,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/combats/BaseCombatsBot.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/combats/pages/GoToBattlePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/combats/pages/BattlePage.java" />
-        <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -591,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559317117931</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="update pom file">
+      <created>1559569665745</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1559569665745</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -706,7 +710,6 @@
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new Pom for build jar file" />
     <MESSAGE value="update Selenide version to 5.2.3&#10;insert reportsFolder&#10;add time validation for start game" />
     <MESSAGE value="fix start game from 8:00 a.m. to 23:59 p.m." />
     <MESSAGE value="fix enter to battle if it goes" />
@@ -731,7 +734,8 @@
     <MESSAGE value="new parameter headless for browser" />
     <MESSAGE value="fix refresh method and commit at battle" />
     <MESSAGE value="update battle's logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="update battle's logic" />
+    <MESSAGE value="update pom file" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pom file" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -968,13 +972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="89" selection-start-column="89" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/combats/pages/BattlePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -987,8 +984,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="83" column="51" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="51" />
+        <state relative-caret-position="724">
+          <caret line="94" column="18" lean-forward="true" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="66" selection-start-column="66" selection-end-column="66" />
         </state>
       </provider>
     </entry>
