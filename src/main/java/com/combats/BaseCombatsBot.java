@@ -3,10 +3,9 @@ package com.combats;
 import com.codeborne.selenide.WebDriverRunner;
 import com.combats.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import static com.codeborne.selenide.Configuration.*;
@@ -24,9 +23,9 @@ public class BaseCombatsBot {
      * -jar Combats-version.jar
      *
      */
+    static SimpleDateFormat parser = new SimpleDateFormat("HH");
 
-    @BeforeTest
-    public static void preparation(boolean headlessValue) {
+    static void preparation(boolean headlessValue) {
         if (!headlessValue) {
             startMaximized = true;
         } else {
@@ -37,13 +36,12 @@ public class BaseCombatsBot {
         headless = headlessValue;
         savePageSource = false;
         reportsFolder = "fails";
-        timeout = 8000;
+        timeout = 20000;
 
         WebDriverManager.chromedriver().setup();
     }
 
-    @Test
-    public static void game(String login, String password, String typeOfBattle, String pet, String telegramAPI) {
+    static void game(String login, String password, String typeOfBattle, String pet, String telegramAPI) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(login, password)
@@ -52,10 +50,10 @@ public class BaseCombatsBot {
                 .fight(pet, telegramAPI);
     }
 
-    @AfterTest
-    public static void end() {
-        WebDriverRunner.getWebDriver().close();
-        waiting(30, 60);
+    static int end() {
+        WebDriverRunner.getWebDriver().quit();
+        waiting(60, 90);
+        return Integer.parseInt(parser.format(new Date()));
     }
 
     private static int getRandomMultiplyThousand(int from, int to) {

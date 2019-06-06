@@ -45,6 +45,9 @@ public class BattlePage {
         switchTo().defaultContent();
         commitBtn.waitUntil(visible, 5000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
+            if (battleKick.isDisplayed()) {
+                battleKick.pressEnter();
+            }
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
                     if (pet.equals("yes"))
@@ -63,20 +66,12 @@ public class BattlePage {
                     defendRadios.get(getRandomInt(0, 5)).click();
                 if (commitBtn.isDisplayed()) {
                     commitBtn.pressEnter();
-                    waiting(1, 2);
                 }
             }
-            if (battleKick.isDisplayed()) {
-                battleKick.pressEnter();
-                waiting(3, 4);
-            }
-
+            waiting(1, 2);
         }
-
         getMessage(telegramAPI);
-
         exitBattle();
-
     }
 
     private void getMessage(String telegramAPI) {

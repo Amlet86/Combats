@@ -4,9 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import static com.codeborne.selenide.Selenide.*;
 import static com.combats.BaseCombatsBot.waiting;
 import static java.lang.Double.parseDouble;
@@ -51,19 +48,20 @@ public class GoToBattlePage {
 
     private void enterToChaos() {
         while (refreshBtn.isDisplayed()) {
-//            if (confirm.isDisplayed()) {
-//                int number = chooseRadio();
-//                $$(goCombat).get(number).click();
-//                confirm.click();
-//            } else
+            if (confirm.isDisplayed()) {
+                int number = chooseRadioWithMinTime();
+                if (number >= 0) {
+                    $$(goCombat).get(number).click();
+                    confirm.click();
+                }
+            }
             if (applicationChaos.isDisplayed()) {
                 applicationChaos.click();
                 $("[name=startime2]").selectOptionByValue("300");
                 $("[name=levellogin1]").selectOptionByValue("3");
                 open.click();
-
-            } else
-                refreshGoToBattlePage();
+            }
+            refreshGoToBattlePage();
             waiting(10, 15);
         }
     }
@@ -83,34 +81,31 @@ public class GoToBattlePage {
     }
 
     private void refreshGoToBattlePage() {
-        if(refreshBtn.isDisplayed())
-        refreshBtn.click();
+        if (refreshBtn.isDisplayed())
+            refreshBtn.click();
     }
 
     private void enterToSingle() {
         open.click();
     }
 
-    /*
-     * P3
-     * переписать логику выбора, сейчас сортируется порядковый номер, а надо сортировать время до боя
-     * исключить из вычитки всё что не число
-     */
-    private int chooseRadio() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+    private int chooseRadioWithMinTime() {
+        int minTime = -1;
         int iterator = 0;
+        double tmpTime = 5;
         try {
             for (SelenideElement element : $$("[action='zayavka.pl'] > .dsc > i > b")) {
                 double time = parseDouble(element.getText());
-                if (time <= 5)
-                    list.add(iterator);
+                if (time <= tmpTime) {
+                    tmpTime = time;
+                    minTime = iterator;
+                }
                 iterator++;
             }
-            Collections.reverse(list);
-            return list.get(0);
+            return minTime;
         } catch (NumberFormatException e) {
             e.getStackTrace();
-            return 0;
+            return -1;
         }
     }
 

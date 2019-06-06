@@ -8,22 +8,19 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CityPage {
 
-    @FindBy(css = "[value='Поединки']")
-    private SelenideElement battles;
-
     private void switchToGameFrame() {
         switchTo().frame($("[onload='top.User.Framework.MainOnLoad( )']"));
     }
 
-    private void whereAmI() {
-        if ($(".UserBattleEnd").isDisplayed())
+    private void exitToBattle() {
+        if ($(".UserBattleEnd").isDisplayed()) {
             $(".UserBattleEnd").click();
-        if (!battles.isDisplayed())
             refresh();
+        }
     }
 
     public GoToBattlePage moveInTheCity() {
-        whereAmI();
+        exitToBattle();
         switchToGameFrame();
         if ($("#dailypopup").isDisplayed())
             $x("//*[.='Взять задание']").click();
