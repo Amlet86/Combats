@@ -10,7 +10,6 @@ public class GameCombatsBot extends BaseCombatsBot {
 
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        String typeOfBattle = (System.getProperty("typeOfBattle") != null) ? System.getProperty("typeOfBattle") : "chaos";
         String telegramAPI = (System.getProperty("telegramAPI") != null) ? System.getProperty("telegramAPI") : "null";
         String pet = (System.getProperty("pet") != null) ? System.getProperty("pet") : "no";
         boolean headless = (System.getProperty("headless") != null) ? parseBoolean(System.getProperty("headless")) : true;
@@ -19,7 +18,7 @@ public class GameCombatsBot extends BaseCombatsBot {
 
         while (now >= 7 && now <= 23) {
             preparation(headless);
-            game(login, password, typeOfBattle, pet, telegramAPI);
+            game(login, password, pet, telegramAPI);
             now = end();
         }
     }

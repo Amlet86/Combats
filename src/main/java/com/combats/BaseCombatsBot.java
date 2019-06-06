@@ -16,11 +16,10 @@ public class BaseCombatsBot {
     /*
      * command for launch not compiled from console:
      * mvn exec:java -Dexec.mainClass="com.combats.GameCombatsBot" -Dlogin=login -Dpassword=password
-     * -DtypeOfBattle=chaos/group/single -DtelegramAPI=telegramAPI -Dpet=yes/no -Dheadless=true/false
+     * -DtelegramAPI=telegramAPI -Dpet=yes/no -Dheadless=true/false
      *
      * command for launch Combats.jar from console:
-     * java -Dlogin=login -Dpassword=password -DtypeOfBattle=chaos/group/single -Dpet=yes/no -Dheadless=true/false
-     * -jar Combats-version.jar
+     * java -Dlogin=login -Dpassword=password -Dpet=yes/no -Dheadless=true/false -jar Combats-version.jar
      *
      */
     static SimpleDateFormat parser = new SimpleDateFormat("HH");
@@ -41,12 +40,12 @@ public class BaseCombatsBot {
         WebDriverManager.chromedriver().setup();
     }
 
-    static void game(String login, String password, String typeOfBattle, String pet, String telegramAPI) {
+    static void game(String login, String password, String pet, String telegramAPI) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
                 .login(login, password)
                 .moveInTheCity()
-                .chooseBattle(typeOfBattle)
+                .enterToChaos()
                 .fight(pet, telegramAPI);
     }
 
