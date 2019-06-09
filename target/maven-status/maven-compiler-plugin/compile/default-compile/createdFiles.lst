@@ -2,5 +2,4 @@ com/combats/pages/LoginPage.class
 com/combats/pages/BattlePage.class
 com/combats/BaseCombatsBot.class
 com/combats/GameCombatsBot.class
-com/combats/pages/CityPage.class
 com/combats/pages/GoToBattlePage.class
