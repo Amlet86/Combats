@@ -8,11 +8,11 @@ public class LoginPage {
         return open("http://www.combats.com/", LoginPage.class);
     }
 
-    public CityPage login(String login, String password) {
+    public StartPage login(String login, String password) {
         $("[name=login]").setValue(login);
         $("[name=psw]").setValue(password);
         $("[value=' Войти ']").click();
-        return page(CityPage.class);
+        return page(StartPage.class);
     }
 
 }

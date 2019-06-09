@@ -1,6 +1,8 @@
-/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/BaseBot.java
-/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/GameBot.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/StartPage.java
 /home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/LoginPage.java
-/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/CityPage.java
-/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/BattlePage.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/DungeonsPage.java
 /home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/GoToBattlePage.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/BattlePage.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/BaseCombatsBot.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/GameCombatsBot.java
+/home/andrey/IdeaProjects/Combats/src/main/java/com/combats/pages/BasePage.java

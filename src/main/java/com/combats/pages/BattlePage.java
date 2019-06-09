@@ -23,6 +23,9 @@ public class BattlePage {
     @FindBy(css = "[action=gameover]")
     private SelenideElement gameover;
 
+    @FindBy(css = "button.UserBattleEnd")
+    private SelenideElement battleEnd;
+
     @FindBy(css = ".UserBattleResources button")
     private List<SelenideElement> anyBattleMethods;
 
@@ -43,10 +46,10 @@ public class BattlePage {
 
     public void fight(String pet, String telegramAPI) {
         switchTo().defaultContent();
-        commitBtn.waitUntil(visible, 5000);
+        commitBtn.waitUntil(visible, 25000);
         while (commitBtn.isDisplayed() || battleKick.isDisplayed()) {
             if (battleKick.isDisplayed()) {
-                battleKick.pressEnter();
+                $("body").pressEnter();
             }
             if (commitBtn.isDisplayed()) {
                 if ($(".UserBattleMethod").isDisplayed()) {
@@ -65,7 +68,7 @@ public class BattlePage {
                 if (defendRadios.get(1).isDisplayed())
                     defendRadios.get(getRandomInt(0, 5)).click();
                 if (commitBtn.isDisplayed()) {
-                    commitBtn.pressEnter();
+                    $("body").pressEnter();
                 }
             }
             waiting(1, 2);
@@ -85,9 +88,12 @@ public class BattlePage {
         }
     }
 
-    private void exitBattle() {
+    private StartPage exitBattle() {
         if (gameover.isDisplayed())
             gameover.click();
+        if (battleEnd.isDisplayed())
+            battleEnd.click();
+        return page(StartPage.class);
     }
 
 }

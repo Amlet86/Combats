@@ -2,6 +2,7 @@ package com.combats;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.combats.pages.LoginPage;
+import com.combats.pages.StartPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.text.SimpleDateFormat;
@@ -22,7 +23,11 @@ public class BaseCombatsBot {
      * java -Dlogin=login -Dpassword=password -Dpet=yes/no -Dheadless=true/false -jar Combats-version.jar
      *
      */
-    static SimpleDateFormat parser = new SimpleDateFormat("HH");
+
+    static int getCurrentTime(){
+        SimpleDateFormat parser = new SimpleDateFormat("HH");
+        return Integer.parseInt(parser.format(new Date()));
+    }
 
     static void preparation(boolean headlessValue) {
         if (!headlessValue) {
@@ -31,7 +36,7 @@ public class BaseCombatsBot {
             browserSize = "1600x900";
         }
         browser = "chrome";
-//        holdBrowserOpen = true;
+        holdBrowserOpen = true;
         headless = headlessValue;
         savePageSource = false;
         reportsFolder = "fails";
@@ -40,19 +45,28 @@ public class BaseCombatsBot {
         WebDriverManager.chromedriver().setup();
     }
 
-    static void game(String login, String password, String pet, String telegramAPI) {
+    static void loginInGame(String login, String password) {
         LoginPage loginPage = new LoginPage();
         loginPage.enterToMainPage()
-                .login(login, password)
-                .moveInTheCity()
+                .login(login, password);
+    }
+
+    static void fightOfChaos(String pet, String telegramAPI) {
+        StartPage startPage = new StartPage();
+        startPage.moveInTheCity()
                 .enterToChaos()
                 .fight(pet, telegramAPI);
     }
 
-    static int end() {
+    static void walkingDownTheDungeons(String pet, String telegramAPI) {
+        StartPage startPage = new StartPage();
+        startPage.moveInTheDungeon()
+                .testInTheDungeon()
+                .fight(pet, telegramAPI);
+    }
+
+    static void end() {
         WebDriverRunner.getWebDriver().quit();
-        waiting(60, 90);
-        return Integer.parseInt(parser.format(new Date()));
     }
 
     private static int getRandomMultiplyThousand(int from, int to) {

@@ -11,6 +11,7 @@ command for launch Combats.jar from console: <br/>
 Parameters:  
  -Dlogin=login  
  -Dpassword=password  
- -DtelegramAPI=telegramAPI  
+ -DtypeOfGame=chaos/dungeon  
  -Dpet=yes/no  
- -Dheadless=true/false
+ -Dheadless=true/false  
+ -DtelegramAPI=telegramAPI  
