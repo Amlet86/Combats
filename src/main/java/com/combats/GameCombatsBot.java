@@ -11,7 +11,7 @@ public class GameCombatsBot extends BaseCombatsBot {
         String typeOfGame = (System.getProperty("typeOfGame") != null) ? System.getProperty("typeOfGame") : "chaos";
         String telegramAPI = (System.getProperty("telegramAPI") != null) ? System.getProperty("telegramAPI") : "null";
         String pet = (System.getProperty("pet") != null) ? System.getProperty("pet") : "no";
-        boolean headless = (System.getProperty("headless") != null) ? parseBoolean(System.getProperty("headless")) : true;
+        boolean headless = (System.getProperty("headless") != null) ? parseBoolean(System.getProperty("headless")) : false;
 
         preparation(headless);
         loginInGame(login, password);
@@ -25,5 +25,4 @@ public class GameCombatsBot extends BaseCombatsBot {
         }
         end();
     }
-
 }

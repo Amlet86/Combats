@@ -32,11 +32,11 @@ public class BaseCombatsBot {
     static void preparation(boolean headlessValue) {
         if (!headlessValue) {
             startMaximized = true;
+            holdBrowserOpen = true;
         } else {
             browserSize = "1600x900";
         }
         browser = "chrome";
-        holdBrowserOpen = true;
         headless = headlessValue;
         savePageSource = false;
         reportsFolder = "fails";
